@@ -1,0 +1,8 @@
+pydantic[email]
+fastapi
+pandas
+starlette
+uvicorn
+json
+sqlalchemy>=2.0
+pymongo
