@@ -1,0 +1,8 @@
+# there is a list of good practices to implement in sensitive and secure areas:
+# 1. Data validation and sertialization - use Pydantic to define strict objects and validate incoming data. Incoming and outgoing data should match fixed schemas.
+# 2. Implement control mechanisms to ensure users can access only the allowed objects.
+# 3. Secure communications and protocols like HTTPS to encrypt data in transit.
+# 4. Ensure Database security.
+# 5. Update regularly.
+# 6. Use logging for handling unusual access patterns or potential breaches.
+ 
