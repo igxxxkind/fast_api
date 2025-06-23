@@ -71,7 +71,7 @@ def modify_task(id: int, task: dict) -> Optional[TaskWithID]:
     
 # Delete Operations
 
-def remove_task(id:int) -> bool:
+def remove_task(id: int) -> bool:
     deleted_task: Optional[Task] = None
     tasks = read_all_tasks()
     with open(DATABASE_FILENAME, "w", newline="") as csvfile:
@@ -79,7 +79,7 @@ def remove_task(id:int) -> bool:
         writer.writeheader()
         for task in tasks:
             if task.id == id:
-                deleted_task = Task
+                deleted_task = task
                 continue
             writer.writerow(task.model_dump())
     if deleted_task:
