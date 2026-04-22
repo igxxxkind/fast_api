@@ -48,7 +48,7 @@ def update_task(task_id: int, task_update: UpdateTask):
         raise HTTPException(status_code=404, detail="Task not found")
     return modified
 
-# DELETE operations
+# DELETE operation
 
 @app.delete("/task/{task_id}", response_model=Task)
 def delete_task(task_id: int):
@@ -57,4 +57,9 @@ def delete_task(task_id: int):
         raise HTTPException(status_code=404, detail="Task not found")
     return removed_task
     
+# Each endpoint represents a specific function in the API, clearly defined and purpose driven.
 
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="127.0.0.1", port=8000)
+    

@@ -65,7 +65,7 @@ def modify_task(id: int, task: dict) -> Optional[TaskWithID]:
         writer = csv.DictWriter(csvfile, fieldnames=column_fields)
         writer.writeheader()
         for task in tasks:
-            writer.writerow(task_.model_dump())
+            writer.writerow(task.model_dump())
     if updated_task:
         return updated_task
     
@@ -87,6 +87,6 @@ def remove_task(id: int) -> bool:
         del dict_task_without_id["id"]
         return Task(**dict_task_without_id)
     
-# HEre we have the BASIC CRUD operations implemented.
+# Here we have implemented few basic CRUD operations.
 
-# API structure us fundamentall in RESTful APi design. IT requires definijng an endpoint and associate that with an HTTP method.
+# API structure is fundamental in RESTful API design. It requires defining an endpoint and associate that with an HTTP method.
