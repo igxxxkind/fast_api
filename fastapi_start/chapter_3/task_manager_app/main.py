@@ -1,8 +1,8 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-
-from models import (Task, TaskWithID)
-from operations import read_all_tasks, read_task, create_task, modify_task, remove_task
+import uvicorn
+from .models import Task, TaskWithID
+from .operations import read_all_tasks, read_task, create_task, modify_task, remove_task
 
 app = FastAPI()
 
@@ -60,6 +60,6 @@ def delete_task(task_id: int):
 # Each endpoint represents a specific function in the API, clearly defined and purpose driven.
 
 if __name__ == "__main__":
-    import uvicorn
+
     uvicorn.run(app, host="127.0.0.1", port=8000)
     

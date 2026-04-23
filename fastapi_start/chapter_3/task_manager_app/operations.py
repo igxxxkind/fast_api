@@ -1,7 +1,7 @@
 import csv
 
 from typing import Optional
-from models import Task, TaskWithID
+from .models import Task, TaskWithID
 
 DATABASE_FILENAME = "tasks.csv"
 
