@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from typing import Optional
 from pydantic import BaseModel
 import uvicorn
 from .models import Task, TaskWithID
@@ -7,14 +8,20 @@ from .operations import read_all_tasks, read_task, create_task, modify_task, rem
 app = FastAPI()
 
 # READ operations
+# Now /tasks has filtering capabilities.
 @app.get("/tasks", response_model=list[TaskWithID])
-def get_tasks():
+def get_tasks(status: Optional[str]=None,
+              title: Optional[str] = None):
     """Get all tasks from the DB
 
     Returns:
         List: A list of Tasks with ID
     """
     tasks = read_all_tasks()
+    if status:
+        tasks = [task for task in tasks if task.status == status]
+    if title:
+        tasks = [task for task in tasks if task.title == title]
     return tasks
 
 @app.get("/tasks/{task_id}", response_model=TaskWithID)
@@ -58,6 +65,13 @@ def delete_task(task_id: int):
     return removed_task
     
 # Each endpoint represents a specific function in the API, clearly defined and purpose driven.
+@app.get("/tasks/search", response_model = list[TaskWithID])
+def search_tasks(keyword: str):
+    tasks = read_all_tasks()
+    filtered_tasks = [
+        task for task in tasks if keyword.upper() in (task.title + task.description).upper()
+    ]
+    return filtered_tasks
 
 if __name__ == "__main__":
 

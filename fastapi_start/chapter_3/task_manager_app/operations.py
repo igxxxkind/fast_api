@@ -3,7 +3,7 @@ import csv
 from typing import Optional
 from .models import Task, TaskWithID
 
-DATABASE_FILENAME = "tasks.csv"
+DATABASE_FILENAME = "task_manager_app/tasks.csv"
 
 column_fields = ["id", "title", "description", "status"]
 ### Read operations

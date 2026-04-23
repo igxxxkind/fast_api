@@ -2,4 +2,4 @@ id,title,description,status
 1,Chapter 1,Basics of FatAPI,Completed
 2,Chapter 2,DB and file handling,Completed
 3,Chapter 3,Building ReSTful APIs,Ongoing
-4,Chapter 3.2,Testing with pytest,Needed
+4,Chapter 3.2,Testing with pytest,Completed
