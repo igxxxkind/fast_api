@@ -1,8 +1,8 @@
 import json
 
-from bookstore.books import router_books
-from bookstore.authors import router_authors
-from bookstore.models import Book
+from books import router_books
+from authors import router_authors
+from models import Book
 
 from pydantic import BaseModel
 from fastapi import FastAPI, HTTPException
@@ -54,4 +54,7 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
 async def raise_exception():
     raise HTTPException(status_code=400)
 
-
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="127.0.0.1", port=8000)
+    
